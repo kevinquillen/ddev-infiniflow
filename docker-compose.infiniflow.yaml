@@ -4,7 +4,7 @@ services:
     container_name: ddev-${DDEV_SITENAME}-infiniflow
     hostname: ${DDEV_SITENAME}-infiniflow
     image: infiniflow/infinity:nightly
-    command: '-f /infiniflow/config.toml'
+    command: '-f /mnt/ddev_config/infiniflow/config.toml'
     networks: [default, ddev_default]
     restart: "no"
     ulimits:
