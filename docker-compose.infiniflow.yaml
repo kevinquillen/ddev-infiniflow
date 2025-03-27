@@ -1,0 +1,27 @@
+#ddev-generated
+services:
+  infiniflow:
+    container_name: ddev-${DDEV_SITENAME}-infiniflow
+    hostname: ${DDEV_SITENAME}-infiniflow
+    image: infiniflow/infinity:nightly
+    command: '-f /infiniflow/config.toml'
+    networks: [default, ddev_default]
+    restart: "no"
+    ulimits:
+      nofile:
+        soft: 50000
+        hard: 50000
+    ports:
+      # Note that the port(s) here must match the ones defined in infinity/config.toml for the HTTP API
+      - "23820:80"
+    labels:
+      com.ddev.site-name: ${DDEV_SITENAME}
+      com.ddev.approot: $DDEV_APPROOT
+    volumes:
+      - "infiniflow:/var/infinity"
+      - ".:/mnt/ddev_config"
+  web:
+    links:
+      - infiniflow:infiniflow
+volumes:
+  infiniflow:
