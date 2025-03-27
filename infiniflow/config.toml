@@ -1,3 +1,4 @@
+#ddev-generated
 [general]
 # Infinity server version, the minor version of this parameter should match server minor version.
 version                  = "0.6.0"
