@@ -13,7 +13,7 @@ services:
         hard: 50000
     ports:
       # Note that the port(s) here must match the ones defined in infinity/config.toml for the HTTP API
-      - "23820:80"
+      - "23820:23820"
     labels:
       com.ddev.site-name: ${DDEV_SITENAME}
       com.ddev.approot: $DDEV_APPROOT
